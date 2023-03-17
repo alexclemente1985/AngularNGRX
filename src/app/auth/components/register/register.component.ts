@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { AuthService } from '../../services/auth-service/auth.service';
 import { registerAction } from '../../store/actions/auth.actions';
 import { selectIsSubmitting } from '../../store/selectors/auth-selectors';
 
@@ -17,7 +18,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private store: Store
+    private store: Store,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
