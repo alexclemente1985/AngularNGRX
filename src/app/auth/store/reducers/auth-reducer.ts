@@ -2,7 +2,7 @@ import { Action, createFeatureSelector, createReducer, on, State } from "@ngrx/s
 import { IAuthState } from "../../types/auth-state.interface";
 import { registerAction } from "../actions/auth.actions";
 
-export const featureSelectorKey = 'auth';
+export const featureKey = 'auth';
 
 const initialState: IAuthState = {
   isSubmitting: false

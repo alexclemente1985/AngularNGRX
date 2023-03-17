@@ -5,7 +5,7 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
-import { reducers } from './store/reducers/auth-reducer';
+import { featureKey as authFeatureKey, reducers } from './store/reducers/auth-reducer';
 
 
 
@@ -18,7 +18,7 @@ import { reducers } from './store/reducers/auth-reducer';
     RouterModule,
     AuthRoutingModule,
     ReactiveFormsModule,
-    StoreModule.forFeature('auth', reducers)
+    StoreModule.forFeature( authFeatureKey, reducers )
   ]
 })
 export class AuthModule { }
