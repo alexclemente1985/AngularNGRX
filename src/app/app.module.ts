@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { BackendErrorMessagesModule } from './shared/modules/backend-error-messages/backend-error-messages.module';
+import { TopBarModule } from './shared/modules/top-bar/top-bar.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { BackendErrorMessagesModule } from './shared/modules/backend-error-messa
     AppRoutingModule,
     AuthModule,
     BackendErrorMessagesModule,
+    TopBarModule,
     StoreModule.forRoot({}),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
