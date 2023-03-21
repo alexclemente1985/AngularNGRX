@@ -1,7 +1,7 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store"
 import { IAppState } from "../../types/app-state.interface"
 import { IAuthState } from "../../types/auth-state.interface"
-import { featureKey } from "../reducers/auth-reducer";
+import { featureKey } from "../reducers/register-reducer";
 
 //const authFeatureSelector = (state: IAppState): IAuthState => state.auth;
 

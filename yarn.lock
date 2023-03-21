@@ -98,6 +98,18 @@
     "@angular-devkit/architect" "0.1303.10"
     rxjs "6.6.7"
 
+"@angular-devkit/core@13.2.0":
+  version "13.2.0"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-13.2.0.tgz#d7ee99ba40af70193a436a27ee1591a1ec754cd9"
+  integrity sha512-5+aV2W2QUazySMKusBuT2pi2qsXWpTHJG2x62mKGAy0lxzwG8l3if+WP3Uh85SQS+zqlHeKxEbmm9zNn8ZrzFg==
+  dependencies:
+    ajv "8.9.0"
+    ajv-formats "2.1.1"
+    fast-json-stable-stringify "2.1.0"
+    magic-string "0.25.7"
+    rxjs "6.6.7"
+    source-map "0.7.3"
+
 "@angular-devkit/core@13.3.10":
   version "13.3.10"
   resolved "https://registry.npmjs.org/@angular-devkit/core/-/core-13.3.10.tgz"
@@ -109,6 +121,17 @@
     magic-string "0.25.7"
     rxjs "6.6.7"
     source-map "0.7.3"
+
+"@angular-devkit/schematics@13.2.0":
+  version "13.2.0"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/schematics/-/schematics-13.2.0.tgz#656a5491be9f25e08faffd410c6ad9a75a82a8a2"
+  integrity sha512-EwoqDqLJH5YpWiLuQJwonnJu2bi4xQlyKXyUTuXsQ4gIsAPrg+ijyAe+F/brAtDLBj0sU7JHoC0U1yx2pZ7f1A==
+  dependencies:
+    "@angular-devkit/core" "13.2.0"
+    jsonc-parser "3.0.0"
+    magic-string "0.25.7"
+    ora "5.4.1"
+    rxjs "6.6.7"
 
 "@angular/animations@~13.2.0":
   version "13.2.7"
@@ -1226,6 +1249,25 @@
   dependencies:
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
+
+"@ngrx/effects@13.2.0":
+  version "13.2.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/effects/-/effects-13.2.0.tgz#36aba5af45ac034419509f799ed70acdb80228b1"
+  integrity sha512-HmWggpl3xGQFfUzON/uel5jSyUWsrGZsR5qR/oFLGjPRWzwKfdHrl0OcBl5IhFgFxT74cAi9F4JTICUytGRbFA==
+  dependencies:
+    tslib "^2.0.0"
+
+"@ngrx/entity@13.2.0":
+  version "13.2.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/entity/-/entity-13.2.0.tgz#de90258a49ad1482ecd61262cba7c9b8097b5919"
+  integrity sha512-2zgz2/3BpYSvVNLqQM034lK3kQ0UoHj7kxmtf5Bkf2yWrjEGVmwyRUYDt1/vlfoBUE/KU7DDPHWJT8r5Li0ALA==
+  dependencies:
+    tslib "^2.0.0"
+
+"@ngrx/schematics@13.2.0":
+  version "13.2.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/schematics/-/schematics-13.2.0.tgz#c2edba689b8e134877cb1db2f8bde974ea095c8c"
+  integrity sha512-MpSJFWF+Pppwv2C+0NNw8RPZmgbhaiEMCiF8VUkAJkXki9CV9Da6cTOa+v1nIrrfUpm/L+jD8DL9CPJTPccRZg==
 
 "@ngrx/store-devtools@13.2.0":
   version "13.2.0"

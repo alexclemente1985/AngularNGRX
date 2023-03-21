@@ -2,9 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { ICurrentUser } from 'src/app/shared/types/current-user.interface';
 import { AuthService } from '../../services/auth-service/auth.service';
-import { registerAction } from '../../store/actions/auth.actions';
-import { selectIsSubmitting } from '../../store/selectors/auth-selectors';
+import { registerAction } from '../../store/actions/register.actions';
+import { selectIsSubmitting, selectValidationErrors } from '../../store/selectors/auth-selectors';
+import { IBackendErrors } from '../../types/backend-errors-interface';
+import { IRegisterRequest } from '../../types/register-request.interface';
 
 @Component({
   selector: 'app-register',
@@ -15,11 +18,11 @@ export class RegisterComponent implements OnInit {
 
   form: FormGroup;
   isSubmitting$: Observable<boolean>;
+  backendErrors$: Observable<IBackendErrors | null>;
 
   constructor(
     private fb: FormBuilder,
-    private store: Store,
-    private authService: AuthService
+    private store: Store
   ) { }
 
   ngOnInit(): void {
@@ -36,12 +39,16 @@ export class RegisterComponent implements OnInit {
   }
 
   private initializeValues(): void{
-    this.isSubmitting$ = this.store.pipe(select(selectIsSubmitting))
+    this.isSubmitting$ = this.store.pipe(select(selectIsSubmitting));
+    this.backendErrors$ = this.store.pipe(select(selectValidationErrors));
   }
 
   onSubmit(): void{
     console.log('submit ', this.form.value);
-    this.store.dispatch(registerAction(this.form.value))
+    const request: IRegisterRequest = {
+      user: this.form.value
+    }
+    this.store.dispatch(registerAction({request}));
   }
 
 }
