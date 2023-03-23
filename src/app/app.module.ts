@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { EffectsModule } from '@ngrx/effects';
@@ -11,6 +11,8 @@ import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { BackendErrorMessagesModule } from './shared/modules/backend-error-messages/backend-error-messages.module';
 import { TopBarModule } from './shared/modules/top-bar/top-bar.module';
+import { AuthInterceptorService } from './shared/services/auth-interceptor/auth-interceptor.service';
+import { PersistanceService } from './shared/services/persistance/persistance.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,14 @@ import { TopBarModule } from './shared/modules/top-bar/top-bar.module';
     }),
     EffectsModule.forRoot([])
   ],
-  providers: [],
+  providers: [
+    PersistanceService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent],
   exports: [
     BackendErrorMessagesModule

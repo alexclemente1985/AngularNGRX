@@ -7,11 +7,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { featureKey as authFeatureKey, reducers as registerReducer } from './store/reducers/register-reducer';
 import { featureKey as loginFeatureKey, reducers as loginReducer } from './store/reducers/login-reducer';
+import { featureKey as userFeatureKey, reducers as userReducer } from './store/reducers/user-reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { RegisterEffects } from './store/effects/register/register.effects';
 import { BackendErrorMessagesModule } from '../shared/modules/backend-error-messages/backend-error-messages.module';
 import { LoginEffects } from './store/effects/login/login.effects';
 import { LoginComponent } from './components/login/login.component';
+import { GetCurrentUserEffects } from './store/effects/get-current-user/get-current-user.effects';
 
 
 
@@ -28,9 +30,11 @@ import { LoginComponent } from './components/login/login.component';
     ReactiveFormsModule,
     StoreModule.forFeature( authFeatureKey, registerReducer ),
     StoreModule.forFeature( loginFeatureKey, loginReducer ),
+    StoreModule.forFeature( userFeatureKey, userReducer ),
     EffectsModule.forFeature([
       RegisterEffects,
-      LoginEffects
+      LoginEffects,
+      GetCurrentUserEffects
     ])
   ]
 })
