@@ -1,47 +1,43 @@
-import { createFeatureSelector, createSelector } from "@ngrx/store"
-import { IAppState } from "../../types/app-state.interface"
-import { IAuthState } from "../../types/auth-state.interface"
-import { featureKey } from "../reducers/register-reducer";
+import { createFeatureSelector, createSelector } from "@ngrx/store";
+import { IAuthState } from "../../types/auth-state.interface";
+import { featureKey } from "../reducers/auth-reducer";
 
-//const authFeatureSelector = (state: IAppState): IAuthState => state.auth;
 
 export const authFeatureSelector = createFeatureSelector<IAuthState>(featureKey);
 
-//export const authFeatureSelector = createFeatureSelector<IAppState, IAuthState>('auth')
+const isSubmittingSelectorFn = (state: IAuthState) => state.isSubmitting;
 
-const isSubmittingSelector = (state: IAuthState) => state.isSubmitting;
+const validationErrorsSelectorFn = (state: IAuthState) => state.validationErrors;
 
-const validationErrorsSelector = (state: IAuthState) => state.validationErrors;
+const isLoggedInSelectorFn = (state: IAuthState) => state.isLoggedIn;
 
-const isLoggedInSelector = (state: IAuthState) => state.isLoggedIn;
+const isAnonymousSelectorFn = (state: IAuthState) => state.isLoggedIn === false;
 
-const isAnonymousSelector = (state: IAuthState) => state.isLoggedIn === false;
+const currentUserSelectorFn = (state: IAuthState) => state.currentUser;
 
-const currentUserSelector = (state: IAuthState) => state.currentUser;
-
-export const selectIsSubmitting = createSelector(
+export const isSubmittingSelector = createSelector(
   authFeatureSelector,
-  isSubmittingSelector
+  isSubmittingSelectorFn
 )
 
 
-export const selectValidationErrors = createSelector(
+export const validationErrorsSelector = createSelector(
   authFeatureSelector,
-  validationErrorsSelector
+  validationErrorsSelectorFn
 )
 
-export const selectIsLoggedIn = createSelector(
+export const isLoggedInSelector = createSelector(
   authFeatureSelector,
-  isLoggedInSelector
+  isLoggedInSelectorFn
 )
 
 
-export const selectIsAnonymous = createSelector(
+export const isAnonymousSelector = createSelector(
   authFeatureSelector,
-  isAnonymousSelector
+  isAnonymousSelectorFn
 )
 
-export const selectCurrentUser = createSelector(
+export const currentUserSelector = createSelector(
   authFeatureSelector,
-  currentUserSelector
+  currentUserSelectorFn
 )

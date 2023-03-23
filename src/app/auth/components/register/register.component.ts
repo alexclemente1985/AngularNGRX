@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { ICurrentUser } from 'src/app/shared/types/current-user.interface';
 import { AuthService } from '../../services/auth-service/auth.service';
 import { registerAction } from '../../store/actions/register.actions';
-import { selectIsSubmitting, selectValidationErrors } from '../../store/selectors/auth-selectors';
+import { isSubmittingSelector, validationErrorsSelector } from '../../store/selectors/auth-selectors';
 import { IBackendErrors } from '../../types/backend-errors-interface';
 import { IRegisterRequest } from '../../types/register-request.interface';
 
@@ -39,8 +39,8 @@ export class RegisterComponent implements OnInit {
   }
 
   private initializeValues(): void{
-    this.isSubmitting$ = this.store.pipe(select(selectIsSubmitting));
-    this.backendErrors$ = this.store.pipe(select(selectValidationErrors));
+    this.isSubmitting$ = this.store.pipe(select(isSubmittingSelector));
+    this.backendErrors$ = this.store.pipe(select(validationErrorsSelector));
   }
 
   onSubmit(): void{
