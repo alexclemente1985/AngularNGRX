@@ -5,9 +5,7 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
-import { featureKey as authFeatureKey, reducers as registerReducer } from './store/reducers/register-reducer';
-import { featureKey as loginFeatureKey, reducers as loginReducer } from './store/reducers/login-reducer';
-import { featureKey as userFeatureKey, reducers as userReducer } from './store/reducers/user-reducer';
+import { featureKey as authFeatureKey, reducers as authReducer } from './store/reducers/auth-reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { RegisterEffects } from './store/effects/register/register.effects';
 import { BackendErrorMessagesModule } from '../shared/modules/backend-error-messages/backend-error-messages.module';
@@ -28,9 +26,7 @@ import { GetCurrentUserEffects } from './store/effects/get-current-user/get-curr
     RouterModule,
     AuthRoutingModule,
     ReactiveFormsModule,
-    StoreModule.forFeature( authFeatureKey, registerReducer ),
-    StoreModule.forFeature( loginFeatureKey, loginReducer ),
-    StoreModule.forFeature( userFeatureKey, userReducer ),
+    StoreModule.forFeature( authFeatureKey, authReducer ),
     EffectsModule.forFeature([
       RegisterEffects,
       LoginEffects,
