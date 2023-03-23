@@ -8,7 +8,7 @@ const initialState: IAuthState = {
   isSubmitting: false,
   currentUser: null,
   validationErrors: null,
-  isLoggedIn: null
+  isLoggedIn: false
 }
 
 const registerReducer = createReducer(

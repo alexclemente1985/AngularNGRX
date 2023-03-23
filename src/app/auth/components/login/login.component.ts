@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { registerAction } from '../../store/actions/register.actions';
+import { PersistanceService } from 'src/app/shared/services/persistance/persistance.service';
+import { loginAction } from '../../store/actions/login.actions';
 import { selectIsSubmitting, selectValidationErrors } from '../../store/selectors/auth-selectors';
 import { IBackendErrors } from '../../types/backend-errors-interface';
 import { IRegisterRequest } from '../../types/register-request.interface';
@@ -20,7 +21,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private store: Store
+    private store: Store,
+    private persistanceService: PersistanceService
   ) { }
 
   ngOnInit(): void {
@@ -41,10 +43,10 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void{
-    console.log('submit ', this.form.value);
     const request: IRegisterRequest = {
       user: this.form.value
     }
-    this.store.dispatch(registerAction({request}));
+    //this.persistanceService.set('accessToken', null);
+    this.store.dispatch(loginAction({request}));
   }
 }
