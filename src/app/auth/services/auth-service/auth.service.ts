@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { ICurrentUser } from 'src/app/shared/types/current-user.interface';
-import { IRegisterRequest } from '../../types/register-request.interface';
+import { IRegisterRequest } from '../../interfaces/register-request.interface';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { IAuthResponse } from '../../types/auth-response.interface';
-import { ILoginRequest } from '../../types/login-request.interface';
+import { IAuthResponse } from '../../interfaces/auth-response.interface';
+import { ILoginRequest } from '../../interfaces/login-request.interface';
 
 @Injectable({
   providedIn: 'root'

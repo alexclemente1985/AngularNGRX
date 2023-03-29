@@ -1,5 +1,5 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
-import { IAuthState } from "../../types/auth-state.interface";
+import { IAuthState } from "../../interfaces/auth-state.interface";
 import { featureKey } from "../reducers/auth-reducer";
 
 
