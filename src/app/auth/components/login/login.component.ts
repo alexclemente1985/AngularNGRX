@@ -5,8 +5,8 @@ import { Observable } from 'rxjs';
 import { PersistanceService } from 'src/app/shared/services/persistance/persistance.service';
 import { loginAction } from '../../store/actions/login.actions';
 import { isSubmittingSelector, validationErrorsSelector } from '../../store/selectors/auth-selectors';
-import { IBackendErrors } from '../../types/backend-errors-interface';
-import { IRegisterRequest } from '../../types/register-request.interface';
+import { IBackendErrors } from '../../interfaces/backend-errors-interface';
+import { IRegisterRequest } from '../../interfaces/register-request.interface';
 
 @Component({
   selector: 'app-login',

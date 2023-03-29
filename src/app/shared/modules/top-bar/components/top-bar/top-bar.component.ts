@@ -6,7 +6,7 @@ import {
   isAnonymousSelector,
   isLoggedInSelector
 } from 'src/app/auth/store/selectors/auth-selectors';
-import { IAuthState } from 'src/app/auth/types/auth-state.interface';
+import { IAuthState } from 'src/app/auth/interfaces/auth-state.interface';
 import { ICurrentUser } from 'src/app/shared/types/current-user.interface';
 
 @Component({
